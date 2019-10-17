@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/gitconfig.png">
 <meta property="og:image" content="https://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/yilia.png">
 <meta property="og:image" content="https://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/yilia_github.png">
-<meta property="og:updated_time" content="2019-10-17T03:06:57.069Z">
+<meta property="og:updated_time" content="2019-10-17T04:50:05.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建博客">
 <meta name="twitter:description" content="前言博客是作为一个程序猿的标配，由于工作的原因，我们记录笔记的方式早已不是高中阶段的在笔记本上用手抄的形式。作为一个计算机的从业者，我们后面会接触到很多新的知识点和技术。我们应当学会在互联网上记录自己这些心得笔记，所以搭建一个属于自己的个人博客就显得很有必要了。 首先要明确一点，就是我们的目的不仅仅是学会搭建博客，博客只是一个个人平台。更重要的是养成定期写博客，更新技术笔记的习惯。">
@@ -195,16 +195,13 @@ var _hmt = _hmt || [];
 <p>首先要明确一点，就是我们的目的不仅仅是学会搭建博客，博客只是一个个人平台。更重要的是养成定期写博客，更新技术笔记的习惯。</p>
 <a id="more"></a>
 <p><strong>注意：比较心急的同学可跳过介绍部分，直接按如下步骤进行配置即可：</strong></p>
-<p><a href="#1">1.安装Git</a></p>
-<p><a href="#2">2.安装NodeJs</a></p>
-<p><a href="#3">3.安装Hexo</a></p>
-<p><a href="#4">4.创建Github仓库</a></p>
+<p><a href="#1">1.安装Git</a><br><a href="#2">2.安装NodeJs</a><br><a href="#3">3.安装Hexo</a><br><a href="#4">4.创建Github仓库</a></p>
 <!-- > [我的Hexo博客地址](https://aoboxia.github.io) -->
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><h3 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>Git是当下<strong>全球</strong>计算机从业者使用最多一个代码版本控制工具，也是我们<strong>必须</strong>要掌握并熟练使用的一个工具。我们能够使用它进行代码的备份，回退。并且在多人开发时，能够进行代码合并。通常，大型的项目开发都必须使用Git进行版本控制，开发人员负责提交代码，项目经理负责代码的合并，这一切都是采用Git来完成的。</p>
 <h4 id="Git和Github"><a href="#Git和Github" class="headerlink" title="Git和Github"></a>Git和Github</h4><p>目前有很多同学都不清楚Git和Github之间的区别，认为Git就等同于Github。实际上两者是完全不同的，Github只是一个网站，一个专门用于存储Git上传的代码仓库。我们将本地的代码使用Git上传到Github上面托管，我们所有的数据都存储在上面，多人开发时，也是大家同时使用Github上面的同一个仓库进行代码管理。</p>
 <p>所以，<a href="https://baike.baidu.com/item/Git/12647237" title="Git" target="_blank" rel="noopener">Git</a>是一个工具，<a href="https://github.com" title="Github" target="_blank" rel="noopener">Github</a>是当下全球最大的一个开源代码托管平台。全世界的程序员都将代码放到上面进行托管，各种开源的语言、库都可以在上面找到源代码。国内也有类似的代码网站，由于Github是一个国外的网站，</p>
 <p>所以国内访问加载和上传速度都很慢，所以我们有时候采用国内的<a href="https://gitee.com" title="码云" target="_blank" rel="noopener">码云</a>。功能和使用方法都是一样的，只不过一个在国内一个在国外。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Git是一个开源的工具，可以直接在官网下载然后通过一键安装即可。这里我们选择一个Git Bash一键安装Git，如果电脑不是windows系统自行下载相应的系统的版本即可。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><a id="1"></a><br>Git是一个开源的工具，可以直接在官网下载然后通过一键安装即可。这里我们选择一个Git Bash一键安装Git，如果电脑不是windows系统自行下载相应的系统的版本即可。</p>
 <ul>
 <li><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git下载地址</a></li>
 <li><strong>安装步骤</strong>: 直接运行exe文件，全部next，不用修改任何配置即可</li>
@@ -212,7 +209,8 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="2-安装NodeJs"><a href="#2-安装NodeJs" class="headerlink" title="2.安装NodeJs"></a>2.安装NodeJs</h3><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><p>node.js是运行在服务端的JavaScript，通常我们知道的CSS/HTML/JS是网页前端开发的标准三件套。HTML负责搭建网页的主体框架和布局，CSS负责跳转每个版块之间的间距，各种控件的颜色大小等等，JS则用于实现网页上的一些动态元素，例如一些动画效果，并接受一些动态的参数。通常JS作为一种胶水语言都是用于前端开发的。</p>
 <p>但是node.js为js搭建了一个平台，使得js也能像Java/Python/PHP一样用于后台开发。由于我们使用的hexo框架是基于node.js实现的一个博客框架，所以我们首先要搭建一个服务端的JS环境。</p>
-<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><ul>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p><a id="2"></a></p>
+<ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJs下载地址</a>(下载LTS版本)</li>
 <li>下载好msi文件后，也是一键安装，不过记得在Custom Setup这一步勾选下面的<code>Add To PATH</code>，把node添加到你电脑的环境变量中</li>
 <li>在任意文件夹下打开Git bash，输入<code>node -v</code>出现了node的版本信息即为安装成功</li>
@@ -220,7 +218,8 @@ var _hmt = _hmt || [];
 <p>如果安装时忘记勾选<code>Add to PATH</code>，可以在电脑左下角搜索编辑系统环境变量，点击打开，点击环境变量，然后再用户配置或者系统配置中<code>Path</code>点击编辑，将你的node.js的bin文件目录添加进去即可。</p>
 <h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><h4 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h4><p><a href="https://hexo.io/zh-cn/docs/index.html" title="Hexo文档" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <p>简单来说，就是一个别人写好的博客网站模板，你直接下载下来试用就可以了。并且hexo支持便捷的更换网站主题，就像你的电脑更换壁纸一样，你可以在网上下载一个hexo主题，复制到相应的文件夹下就可以一键更换你整个网站的界面和功能了。</p>
-<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><ul>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><p><a id="3"></a></p>
+<ul>
 <li>创建一个文件夹用于存放整个博客网站的文件，建议和你的仓库一样命名为<code>yourname.github.io</code></li>
 <li>进入该文件夹右键进入Git bash界面</li>
 <li>先使用<code>git --version</code>和<code>node -v</code>确认都能正常出现版本信息没有报错方可进入下一步<br><img src="https://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/git-node-version.png" alt="版本信息"></li>
@@ -247,7 +246,8 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="4-连接Github"><a href="#4-连接Github" class="headerlink" title="4.连接Github"></a>4.连接Github</h3><h4 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍"></a>介绍</h4><p>Github是全面全球最大的一个代码托管平台，他是有许许多多的代码仓库构成，每个人都可以创建仓库，并且仓库的所有代码都是公开的，因此我们能在上面找到各种项目各种语言的源代码。今后我们学习和工作会与它密不可分。学习世界上最顶尖的大牛、最优秀的开源框架的代码也是一种极快提升我们视野和能力的途径。</p>
 <p>刚才我们只是本地运行了Hexo博客，这里我们要做的是将我们本地的hexo博客的文件夹上传到Github的仓库当中，让所有人都能访问到我们的博客。Github为我们每个注册的用户免费提供了一个<code>https://yourname.github.io</code>的域名，因此我们可以将Github当成服务器运行我们博客网站。每次我们需要写博客就在本地写好之后同步提交到Github，然后我们的博客也能自动更新。</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><ul>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p><a id="4"></a></p>
+<ul>
 <li>首先你需要到<a href="https://github.com" target="_blank" rel="noopener">Github</a>使用邮箱注册一个账号</li>
 <li>然后创建一个repository(仓库)<br>仓库的名字一定要是<code>yourname.github.io</code><br><strong>例如:</strong> 我的用户名是<code>ctguqmx</code>然后我们仓库名就是<code>ctguqmx.github.io</code><br>因为Github只为我们提供这一个可以访问的域名<br><img src="https://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/github.png" alt="创建仓库"></li>
 </ul>
@@ -273,7 +273,7 @@ var _hmt = _hmt || [];
 <ol>
 <li><code>fatal: remote origin already exits.</code><br>原因：你已经绑定过了远程仓库的链接<br>解决办法：<code>git remote rm origin</code>删除链接，然后再用<code>git remote add http://xxx</code></li>
 <li><code>fatal: Authentication failed for &#39;https://github.com/xxx/xxx.git&#39;</code><br>原因：账号或者密码错误<br>解决办法：<code>git remote -v</code>查看的你绑定的链接中的账号密码是否正确</li>
-<li><code>FATAL Something&#39;s wrong. Maybe you can find the solution here: xxx</code><br>原因：博客发布出现了异常，出现了一些残留文件<br>解决办法: 删除掉根目录的<code>.git_deploy</code>隐藏文件，文件夹上方的查看可以设置显示隐藏的文件。</li>
+<li><code>Template render error: (unknown path)</code><br>原因：你写的Markdown博客文件语法错误，无法解析<br>解决办法: 找到相应的语法错误并修正</li>
 </ol>
 <h4 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h4><p>现在我们可以开始部署我们的博客了</p>
 <ul>
@@ -576,14 +576,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">答辩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -592,19 +584,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">答辩</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">函数库</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,6 +613,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">函数库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,5 +775,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
