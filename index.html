@@ -247,6 +247,91 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-ALV-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/20/ALV-Tree/">ALV Tree</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+        
+        <a href="/2020/02/20/ALV-Tree/" class="archive-article-date">
+  	<time datetime="2020-02-20T06:19:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。</p>
+<p>当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。</p>
+<p>插入一个新节点后，总共可能有如下四种可能的情况：</p>
+<h3 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h3><p>情况一：当新插入节点3时，AVL失衡，以节点1为基准左旋<br>伪代码：<code>if(newval &gt; root-&gt;right-&gt;val): rotateLeft(root)</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E6%97%8B.jpg" alt=""></p>
+<h3 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h3><p>情况二：当新插入节点1时，AVL失衡，以节点3为基准左旋<br>伪代码：<code>if(newval &lt; root-&gt;left-&gt;val): rotateRight(root)</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%8F%B3%E6%97%8B.jpg" alt=""></p>
+<h3 id="左右旋"><a href="#左右旋" class="headerlink" title="左右旋"></a>左右旋</h3><p>情况三：当新插入节点2时，AVL失衡，先以节点1为基准左旋，后以3为基准右旋<br>伪代码：<code>if(newval &gt; root-&gt;left-&gt;val): { rotateLeft(root-&gt;left), rotateRight(root) }</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E5%8F%B3%E6%97%8B.jpg" alt=""></p>
+<h3 id="右左旋"><a href="#右左旋" class="headerlink" title="右左旋"></a>右左旋</h3><p>情况四：当新插入节点2时，AVL失衡，先以节点3为基准右旋，后以节点1为基准左旋<br>伪代码：<code>if(newval &gt; root-&gt;right-&gt;val): { rotateRight(root-&gt;right), rotateLeft(root) }</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%8F%B3%E5%B7%A6%E6%97%8B.jpg" alt=""></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> val, height;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">lc</span>, *<span class="title">rc</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">height</span><span class="params">(node *root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> root == <span class="literal">NULL</span> ? <span class="number">0</span> : root-&gt;height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node *<span class="title">rotateLeft</span><span class="params">(node *root)</span> </span>&#123;</span><br><span class="line">	node *t = root-&gt;rc;</span><br><span class="line">	root-&gt;rc = t-&gt;lc;</span><br><span class="line">	t-&gt;lc = root;</span><br><span class="line">	</span><br><span class="line">	root-&gt;height = max(height(root-&gt;lc), height(root-&gt;rc)) + <span class="number">1</span>;</span><br><span class="line">	t-&gt;height = max(height(t-&gt;lc), height(t-&gt;rc)) + <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node *<span class="title">rotateRight</span><span class="params">(node *root)</span> </span>&#123;</span><br><span class="line">	node *t = root-&gt;lc;</span><br><span class="line">	root-&gt;lc = t-&gt;rc;</span><br><span class="line">	t-&gt;rc = root;</span><br><span class="line">	</span><br><span class="line">	root-&gt;height = max(height(root-&gt;lc), height(root-&gt;rc)) + <span class="number">1</span>;</span><br><span class="line">	t-&gt;height = max(height(t-&gt;lc), height(t-&gt;rc)) + <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node* <span class="title">insert</span><span class="params">(node *root, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root = <span class="keyword">new</span> node();</span><br><span class="line">		root-&gt;val = x;</span><br><span class="line">		root-&gt;lc = root-&gt;rc = <span class="literal">NULL</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(x &lt; root-&gt;val) &#123;</span><br><span class="line">		root-&gt;lc = insert(root-&gt;lc, x);</span><br><span class="line">		<span class="keyword">if</span>(height(root-&gt;lc) - height(root-&gt;rc) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span>(x &lt; root-&gt;lc-&gt;val) &#123; <span class="comment">//情况2：右旋</span></span><br><span class="line">				root = rotateRight(root);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123; <span class="comment">//情况3：左右旋</span></span><br><span class="line">				root-&gt;lc = rotateLeft(root-&gt;lc);</span><br><span class="line">				root = rotateRight(root);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		root-&gt;rc = insert(root-&gt;rc, x);</span><br><span class="line">		<span class="keyword">if</span>(height(root-&gt;lc) - height(root-&gt;rc) &lt; <span class="number">-1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span>(x &lt; root-&gt;rc-&gt;val) &#123; <span class="comment">//情况4：右左旋</span></span><br><span class="line">				root-&gt;rc = rotateRight(root-&gt;rc);</span><br><span class="line">				root = rotateLeft(root);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123; <span class="comment">//情况1：左旋</span></span><br><span class="line">				root = rotateLeft(root);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	root-&gt;height = max(height(root-&gt;lc), height(root-&gt;rc)) + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	node *root = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">int</span> n, x;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">		root = insert(root, x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; root-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/20/ALV-Tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-NPL定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -910,91 +995,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-LCA问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/LCA问题/">LCA问题</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-        
-        <a href="/2018/08/24/LCA问题/" class="archive-article-date">
-  	<time datetime="2018-08-24T08:25:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>LCA问题，即最近公共祖先，一般有在线的ST算法和离线的Tarjin算法还有什么倍增法，最近学算法学的有点懵逼，先写一个常用的离线tarjin算法，比较容易理解。其他的先留着，以后再填坑。</p>
-        
-          <a class="article-more-a" href="/2018/08/24/LCA问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/24/LCA问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1011,7 +1011,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Mr.tree
+    		&copy; 2020 Mr.tree
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1117,11 +1117,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,11 +1125,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,6 +1145,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心得</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1153,15 +1157,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心得</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,11 +1185,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
+                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
               </li>
             
             <div class="clearfix"></div>
