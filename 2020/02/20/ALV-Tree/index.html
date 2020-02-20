@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ALV Tree | Mr.tree的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况： 左旋情况一：当新插入节点3时，AVL失衡，以节点1为基准左旋伪代码：if(newval &amp;gt; root-&amp;gt;right-&amp;gt;val): rotateLeft">
+  <meta name="description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况：">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ALV Tree">
 <meta property="og:url" content="http://yoursite.com/2020/02/20/ALV-Tree/index.html">
 <meta property="og:site_name" content="Mr.tree的博客">
-<meta property="og:description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况： 左旋情况一：当新插入节点3时，AVL失衡，以节点1为基准左旋伪代码：if(newval &amp;gt; root-&amp;gt;right-&amp;gt;val): rotateLeft">
+<meta property="og:description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E6%97%8B.jpg">
 <meta property="og:image" content="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%8F%B3%E6%97%8B.jpg">
 <meta property="og:image" content="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E5%8F%B3%E6%97%8B.jpg">
 <meta property="og:image" content="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%8F%B3%E5%B7%A6%E6%97%8B.jpg">
-<meta property="og:updated_time" content="2020-02-20T07:30:05.397Z">
+<meta property="og:updated_time" content="2020-02-20T07:39:46.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ALV Tree">
-<meta name="twitter:description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况： 左旋情况一：当新插入节点3时，AVL失衡，以节点1为基准左旋伪代码：if(newval &amp;gt; root-&amp;gt;right-&amp;gt;val): rotateLeft">
+<meta name="twitter:description" content="AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。 当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。 插入一个新节点后，总共可能有如下四种可能的情况：">
 <meta name="twitter:image" content="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E6%97%8B.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.tree的博客" type="application/atom+xml">
@@ -203,6 +203,7 @@ var _hmt = _hmt || [];
         <p>AVL树是一种自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1。</p>
 <p>当插入一个新节点时，可能会破坏原有平衡状态，则需要通过Rotate（旋转）操作来保持树的平衡性。</p>
 <p>插入一个新节点后，总共可能有如下四种可能的情况：</p>
+<a id="more"></a>
 <h3 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h3><p>情况一：当新插入节点3时，AVL失衡，以节点1为基准左旋<br>伪代码：<code>if(newval &gt; root-&gt;right-&gt;val): rotateLeft(root)</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E6%97%8B.jpg" alt=""></p>
 <h3 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h3><p>情况二：当新插入节点1时，AVL失衡，以节点3为基准左旋<br>伪代码：<code>if(newval &lt; root-&gt;left-&gt;val): rotateRight(root)</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%8F%B3%E6%97%8B.jpg" alt=""></p>
 <h3 id="左右旋"><a href="#左右旋" class="headerlink" title="左右旋"></a>左右旋</h3><p>情况三：当新插入节点2时，AVL失衡，先以节点1为基准左旋，后以3为基准右旋<br>伪代码：<code>if(newval &gt; root-&gt;left-&gt;val): { rotateLeft(root-&gt;left), rotateRight(root) }</code><br><img src="http://aoboxia.oss-cn-hongkong.aliyuncs.com/github.io/AVL-%E5%B7%A6%E5%8F%B3%E6%97%8B.jpg" alt=""></p>
