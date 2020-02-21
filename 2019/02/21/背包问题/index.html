@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>中国剩余定理 | Mr.tree的博客</title>
+  <title>背包问题 | Mr.tree的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="描述中国剩余定理是用来解决，一元线性同余方程组的问题：形如：  (S):\left\{     \begin{aligned}     x\equiv a_{1} (mod\ m_{1})\\     x\equiv a_{2} (mod\ m_{2})\\     \vdots\\     x\equiv a_{n} (mod\ m_{n})     \end{aligned}     \rig">
-<meta name="keywords" content="算法,数论">
+  <meta name="description" content="01背包问题 有n个物品，分别重w[i]，价值v[i]，现要从n个物品中挑选任意个，使得总重量不超过m，且价值最大。每个物品仅可挑选一次。">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中国剩余定理">
-<meta property="og:url" content="http://yoursite.com/2018/08/09/中国剩余定理/index.html">
+<meta property="og:title" content="背包问题">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/背包问题/index.html">
 <meta property="og:site_name" content="Mr.tree的博客">
-<meta property="og:description" content="描述中国剩余定理是用来解决，一元线性同余方程组的问题：形如：  (S):\left\{     \begin{aligned}     x\equiv a_{1} (mod\ m_{1})\\     x\equiv a_{2} (mod\ m_{2})\\     \vdots\\     x\equiv a_{n} (mod\ m_{n})     \end{aligned}     \rig">
+<meta property="og:description" content="01背包问题 有n个物品，分别重w[i]，价值v[i]，现要从n个物品中挑选任意个，使得总重量不超过m，且价值最大。每个物品仅可挑选一次。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-20T11:45:44.565Z">
+<meta property="og:updated_time" content="2020-02-21T07:21:59.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中国剩余定理">
-<meta name="twitter:description" content="描述中国剩余定理是用来解决，一元线性同余方程组的问题：形如：  (S):\left\{     \begin{aligned}     x\equiv a_{1} (mod\ m_{1})\\     x\equiv a_{2} (mod\ m_{2})\\     \vdots\\     x\equiv a_{n} (mod\ m_{n})     \end{aligned}     \rig">
+<meta name="twitter:title" content="背包问题">
+<meta name="twitter:description" content="01背包问题 有n个物品，分别重w[i]，价值v[i]，现要从n个物品中挑选任意个，使得总重量不超过m，且价值最大。每个物品仅可挑选一次。">
   
     <link rel="alternative" href="/atom.xml" title="Mr.tree的博客" type="application/atom+xml">
   
@@ -159,14 +159,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-中国剩余定理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-背包问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      中国剩余定理
+      背包问题
     </h1>
   
 
@@ -187,50 +187,42 @@ var _hmt = _hmt || [];
         <!--显示阅读次数完毕-->
 
         
-        <a href="/2018/08/09/中国剩余定理/" class="archive-article-date">
-  	<time datetime="2018-08-09T09:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
+        <a href="/2019/02/21/背包问题/" class="archive-article-date">
+  	<time datetime="2019-02-21T03:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>中国剩余定理是用来解决，一元线性同余方程组的问题：<br>形如：</p>
-<script type="math/tex; mode=display">
-(S):\left\{
-    \begin{aligned}
-    x\equiv a_{1} (mod\ m_{1})\\
-    x\equiv a_{2} (mod\ m_{2})\\
-    \vdots\\
-    x\equiv a_{n} (mod\ m_{n})
-    \end{aligned}
-    \right.</script><p>一堆东西每次取$mi$个最后剩余$ai$个，请问这堆东西最少有多少个？</p>
-<a id="more"></a>
-<p><strong>中国剩余定理：</strong><br><strong>所有$mi$两两互质的前提下</strong><br>设</p>
-<script type="math/tex; mode=display">M=m_{1}*m_{2}*...*m_{i}</script><p>即$M$为模数的乘积，设</p>
-<script type="math/tex; mode=display">M_{i}=M/m_{i}</script><p>即$M_{i}$是除$m_{i}$以外所有模数的乘积，设</p>
-<script type="math/tex; mode=display">t_{i} * M_{i} ≡ 1\pmod{m_{i}}</script><p>即$t_{i}$是$M_{i}$模$m_{i}$的乘法逆元，则$S$的通解为</p>
-<script type="math/tex; mode=display">a_{1}*t_{1}*M_{i} + a_{2}*t_{2}*M_{2} + ... + a_{i}*t_{i}*M_{i} + K*M</script><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>证明过程可以参考：</p>
-<blockquote>
-<p><a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中国剩余定理</a></p>
+        <h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>有n个物品，分别重w[i]，价值v[i]，现要从n个物品中挑选任意个，使得总重量不超过m，且价值最大。每个物品仅可挑选一次。</p>
 </blockquote>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求乘法逆元</span></span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll d = exgcd(b, a%b, y, x);</span><br><span class="line">    y -= (a/b) * x;</span><br><span class="line">    <span class="keyword">if</span>(d == <span class="number">1</span>)  <span class="keyword">return</span> (x % n + n) % n;</span><br><span class="line">    <span class="keyword">else</span>    <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//无逆元</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">china_remain</span><span class="params">(ll m[], ll a[], ll n)</span></span>&#123;</span><br><span class="line">    ll M = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        M *= m[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        ll tm = M / m[i];</span><br><span class="line">        x = exgcd(tm, m[i], x, y);</span><br><span class="line">        res = (res + x * a[i] * tm) % M;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (res + M) % M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>中国剩余定理只适用与所有$mi$两两互质的情况下，如果存在$mi$不互质的话，是无法通过求逆元的方式推导出最后的通解公式的。所以上述问题就变成了普通的多元线性同余方程组的问题，我们可以通过两两合并同余方程的方法来求解。如：</p>
-<script type="math/tex; mode=display">Res = k_{1}*m_{1} + a_{1}\\
-Res = k_{2}*m_{2} + a_{2}</script><p>合并之后有：</p>
-<script type="math/tex; mode=display">Res = a_{1}+m_{1}*K \pmod{m_{1}*m_{2}/gcd}</script><p>其中$K$是$k_{1}*m_{1} = a_{2}-a_{1} \pmod{ m_{2}}$算出的一个特解。</p>
-<h3 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h3><p>设：</p>
-<script type="math/tex; mode=display">Res = k_{1}*m_{1} + a_{1}\\
-Res = k_{2}*m_{2} + a_{2}</script><p>则有</p>
-<script type="math/tex; mode=display">k_{1}*m_{1} + a_{1} = k_{2}*m_{2} + a_{2}\\
-k_{1}*m_{1} = a_{2}-a_{1}\pmod{m_{2}}</script><p>令 </p>
-<script type="math/tex; mode=display">gcd = gcd(m_{1}, m_{2})</script><p>仅当$a_{2}-a_{1} | gcd$时有解，则可以将等式两边同除$gcd$得:</p>
-<script type="math/tex; mode=display">k_{1}*m_{1} = a_{2}-a_{1}\pmod{m_{2}/gcd}</script><p>则可以通过$exgcd$求得$k_{1}$的通解为$k_{1} = K + (m_{2}/gcd)*C$,$C$为某一整数；<br>将$k_{1}$带入原式中得：</p>
-<script type="math/tex; mode=display">Res = m_{1}*(K + (m_{2}/gcd)*C) + a_{1}</script><p>整理得：</p>
-<script type="math/tex; mode=display">Res = a_{1}+m_{1}*K + m_{1}*m_{2}/gcd*C</script><p>则有：</p>
-<script type="math/tex; mode=display">Res = a_{1}+m_{1}*K\pmod{m_{1}*m_{2}/gcd}</script><p>证毕</p>
-<h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">		x = <span class="number">1</span>;</span><br><span class="line">		y = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> r = exgcd(b, a%b, y, x);</span><br><span class="line">	y -= (a/b)*x;</span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//mi两两不互质的情况</span></span><br><span class="line"><span class="function">ll <span class="title">remaind</span><span class="params">(ll m[], ll r[], ll n)</span></span>&#123;</span><br><span class="line">	ll M = m[<span class="number">0</span>], R = r[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">		ll x, y;</span><br><span class="line">		ll d = exgcd(M, m[i], x, y);</span><br><span class="line">		<span class="keyword">if</span>((r[i] - R) % d)	<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">//不能整除则无解</span></span><br><span class="line">                <span class="comment">// x 为 k1*m1 = a_&#123;2&#125;-a1 (mod m2/gcd)方程的解</span></span><br><span class="line">		x = (r[i] - R) / d * x % (m[i] / d);</span><br><span class="line">		R += M * x;</span><br><span class="line">		<span class="comment">//M = m[i] * M / d;</span></span><br><span class="line">                M = M / d * m[i];</span><br><span class="line">		R %= M;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> R &gt; <span class="number">0</span> ? R : R + M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
+<h3 id="二维数组实现"><a href="#二维数组实现" class="headerlink" title="二维数组实现"></a>二维数组实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10001</span>][<span class="number">10001</span>], w[<span class="number">10001</span>], v[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(j &lt; w[i]) &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = dp[i][j];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一维数组实现"><a href="#一维数组实现" class="headerlink" title="一维数组实现"></a>一维数组实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10001</span>], w[<span class="number">10001</span>], v[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = m; j &gt;= w[i]; j--) &#123;</span><br><span class="line">			dp[j] = max(dp[j], dp[j - w[i]] + v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="01背包变形"><a href="#01背包变形" class="headerlink" title="01背包变形"></a>01背包变形</h3><p>前面01背包的时间复杂度是O(nW)，当物品的重量较大时，问题的规模较大。如果每个物品的价值较小可以转换一种思路求解。<br>前面的DP思路时，求相同重量下能够装下的物品的最大价值，可以转换为：相同价值下，求所需背包的最小重量。最后dp数组中&lt;=W的最大价值即为所求。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">101</span>][<span class="number">10001</span>], w[<span class="number">10001</span>], v[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dp, INF, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">	<span class="keyword">int</span> n, m, MAXV = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) MAXV += v[i];</span><br><span class="line">	dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= MAXV; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(j &lt; v[i]) &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = dp[i][j];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = min(dp[i][j], dp[i][j - v[i]] + w[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= MAXV; i++) <span class="keyword">if</span>(dp[n][i] &lt;= m) res = i;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>有n中重量和价值分别为 $w_{i},v_{i}$ 的物品。从这些物品中挑选总重量不超过 $W$ 的物品，求出挑选物品价值总和的最大值。在这里，每种物品可以挑选任意多次。</p>
+</blockquote>
+<h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><p>01背包的状态转移方程为：</p>
+<script type="math/tex; mode=display">dp[i+1][j] = 
+\left\{
+    \begin{array}{lr}
+    dp[i][j] & & (j<w[i])\\
+    max\{dp[i][j], dp[i][j-w[i]] + v[i]\} & & (j\geqslant w[i])
+    \end{array}
+\right.</script><p>完全背包的状态转移方程为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+dp[i+1][j] 
+&= max\{ dp[i][j-k\times w[i]] + k\times v[i] | 0 \leqslant k \} \\
+&=max( dp[i][j], dp[i][j-k\times w[i]] + k\times v[i] | 1 \leqslant k ) \\
+&=max( dp[i][j], dp[i][j-k\times w[i]-w[i]] + k\times v[i]+v[i] | 0 \leqslant k ) \\
+&=max( dp[i][j], d[i+1][j-w[i]]+v[i] )
+\end{aligned}</script><h3 id="二维数组实现-1"><a href="#二维数组实现-1" class="headerlink" title="二维数组实现"></a>二维数组实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10001</span>][<span class="number">10001</span>], w[<span class="number">10001</span>], v[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(j &lt; w[i]) &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = dp[i][j];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][j] = max(dp[i][j], dp[i + <span class="number">1</span>][j - w[i]] + v[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一维数组实现-1"><a href="#一维数组实现-1" class="headerlink" title="一维数组实现"></a>一维数组实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10001</span>], w[<span class="number">10001</span>], v[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = w[i]; j &lt;= m; j++) &#123;</span><br><span class="line">			dp[j] = max(dp[j], dp[j - w[i]] + v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -275,10 +267,6 @@ k_{1}*m_{1} = a_{2}-a_{1}\pmod{m_{2}}</script><p>令 </p>
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
         		</li>
       		
 		</ul>
@@ -334,7 +322,7 @@ k_{1}*m_{1} = a_{2}-a_{1}\pmod{m_{2}}</script><p>令 </p>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/09/中国剩余定理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/21/背包问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -348,18 +336,18 @@ k_{1}*m_{1} = a_{2}-a_{1}\pmod{m_{2}}</script><p>令 </p>
   
 <nav id="article-nav">
   
-    <a href="/2018/08/09/拓展GCD/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/01/vim常用快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          拓展GCD
+          vim编辑器
         
       </div>
     </a>
   
   
-    <a href="/2018/08/07/kmp算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kmp算法</div>
+    <a href="/2019/02/16/Unicode与UTF-8编码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unicode与UTF-8编码</div>
       <i class="icon-circle-right"></i>
     </a>
   
